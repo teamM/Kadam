@@ -28,4 +28,14 @@
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DonorRegistrationController</display-name>
+    <servlet-name>DonorRegistrationController</servlet-name>
+    <servlet-class>com.kadam.controller.DonorRegistrationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DonorRegistrationController</servlet-name>
+    <url-pattern>/DonorRegistrationController</url-pattern>
+  </servlet-mapping>
 </web-app>
