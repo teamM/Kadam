@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>DonorRegistrationController</display-name>
+    <servlet-name>DonorRegistrationController</servlet-name>
+    <servlet-class>com.kadam.controller.DonorRegistrationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DonorRegistrationController</servlet-name>
+    <url-pattern>/DonorRegistrationController</url-pattern>
+  </servlet-mapping>
 </web-app>
