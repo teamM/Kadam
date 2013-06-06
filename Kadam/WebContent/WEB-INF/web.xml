@@ -9,4 +9,23 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <filter>
+    <display-name>Fauthentictionlogin</display-name>
+    <filter-name>Fauthentictionlogin</filter-name>
+    <filter-class>com.kadam.filter.Fauthentictionlogin</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Fauthentictionlogin</filter-name>
+    <url-pattern>/Fauthentictionlogin</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginController</display-name>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>com.kadam.controller.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
 </web-app>
