@@ -1,10 +1,13 @@
 package com.kadam.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kadam.bo.LoginBo;
 import com.kadam.execeptions.KadamBusinessException;
@@ -41,12 +44,21 @@ public class LoginController extends HttpServlet {
 		 
 		 LoginVo userloginvo=new LoginVo();
 		 LoginBo bo=new LoginBo();
+		 HttpSession session = request.getSession();
+
 		 
 		userloginvo.setUsername(userName);
 		userloginvo.setPassword(passWord);
 		
 		try {
 			authentication=bo.loginAuthentication(userloginvo);
+			if(authentication==true){
+				//session.setAttribute("login",userloginvo.getUsertype());
+				//in future if there is to be admin and normal user then the above can be used
+				session.setAttribute("username", userloginvo.getUsername());
+				RequestDispatcher dispatcher1 = request.getRequestDispatcher("loginteacher.jsp");
+				dispatcher1.forward(request, response);
+			}
 		} catch (KadamException e) {
 			e.printStackTrace();
 		} catch (KadamBusinessException e) {
