@@ -9,14 +9,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * Servlet Filter implementation class Fauthentictionlogin
+ * Servlet Filter implementation class AuthenticationFilter
  */
-public class Fauthentictionlogin implements Filter {
+public class AuthenticationFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public Fauthentictionlogin() {
+    public AuthenticationFilter() {
         // TODO Auto-generated constructor stub
     }
 

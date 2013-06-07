@@ -29,6 +29,11 @@
 		</td>
 		<td><input type="text" name="password" id="password"></td>		 
 	</tr>
+	<tr>
+				
+			<td><input  type="submit" name="login" value="login" /></td>
+			<td><input type="reset" name="clear" value="clear"/></td>
+		</tr>
 	</table>
 	</form>
 </body>
