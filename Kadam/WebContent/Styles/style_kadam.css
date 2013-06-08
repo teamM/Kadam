@@ -1,0 +1,60 @@
+@CHARSET "ISO-8859-1";
+
+#logo_w1,#logo_w2 {
+	font-size: 24px;
+	font-style:italic;
+	color:#FFFFFF;
+	position:absolute;
+}
+#logo_w1{
+	top:15px;
+	left:70px;
+}
+#logo_w2{
+	top:44px;
+	left:94px;
+}
+#header_text {
+/* 	top:90px;
+	left:43px;
+*/	width:230px;
+ 	position:absolute;
+}
+#header_text p{
+	font-size: 18px;
+	color:#FFFFFF;
+}
+#header_text a{color:#28556b;}
+#header_text a:hover{color:#c77e0c;}
+
+/********************** Header ***************************/
+#header {
+	margin: 0px 0px 0px 0px;
+	background-image:url(../images/kadam5.jpg);
+	height:200px;
+	position:relative;
+}
+#header ul{
+	background-color:#85a157;
+	width:1200px;
+	border: 3px solid #FFFFFF;
+	display:block;
+	top:180px;
+	position:absolute;
+	margin: 0px 0px 0px 0px;
+	height:22px;
+	padding:0px 0px 0px 0px;
+	text-align:center;
+}
+#header li{
+	display:inline;	
+}
+#header ul a{
+	text-decoration:none;
+	color:#FFFFFF;
+	margin: 0px 25px;
+}
+#header ul a:hover{
+	text-decoration:underline;
+	color:#28556b;
+}

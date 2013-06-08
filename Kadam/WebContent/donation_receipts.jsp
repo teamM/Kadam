@@ -7,7 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
+<style>
+body 
+{
+background-image:url(../images/'content_bg.gif');
+}
+</style>
 <script type="text/javascript">
 function function_registerdonor() {
 	 w = window.open('donor_registration.jsp','','width=500,height=500');

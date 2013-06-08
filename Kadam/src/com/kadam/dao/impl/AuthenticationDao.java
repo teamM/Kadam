@@ -13,7 +13,7 @@ import com.kadam.vo.LoginVo;
 
 public class AuthenticationDao {
 	
-	PreparedStatement addcolumn_statement=null,teachertable_statement,addteacher_statement,addaccount_statement,generatepassword_statement;
+	PreparedStatement statement_execute=null;
 	Connection con;
 	ResultSet result;
 	public  AuthenticationDao() throws KadamException, KadamBusinessException {
