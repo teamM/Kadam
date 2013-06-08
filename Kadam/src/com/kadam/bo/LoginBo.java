@@ -11,7 +11,7 @@ public class LoginBo {
 		
 		AuthenticationDao dao=new AuthenticationDao();
 		
-		return dao.userAuthentication();
+		return dao.userAuthentication(userloginvo);
 		
 		
 	}

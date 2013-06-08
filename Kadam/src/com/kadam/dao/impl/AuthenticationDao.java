@@ -13,7 +13,7 @@ import com.kadam.vo.LoginVo;
 
 public class AuthenticationDao {
 	
-	PreparedStatement statement_execute=null;
+	PreparedStatement statement;
 	Connection con;
 	ResultSet result;
 	public  AuthenticationDao() throws KadamException, KadamBusinessException {
@@ -30,10 +30,25 @@ public class AuthenticationDao {
 	}
 	
 	
-	public boolean userAuthentication(){
+	public boolean userAuthentication(LoginVo userloginvo) throws KadamBusinessException{
+		try{
+			statement=con.prepareStatement("select * from kadamusers where uid=? and password=?");
+			statement.setString(1, userloginvo.getUsername());    
+			statement.setString(2, userloginvo.getPassword());
+			System.out.println(userloginvo.getPassword()+"pass"+userloginvo.getUsername()+"username");
+			result=statement.executeQuery();
+			
+			if(result.next()){
+				return true;
+			}
+			con.close();
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.getMessage();
+				throw new KadamBusinessException(e+"Subject information could not be inserted");
+			}	
+		
 		return false;
 		
-	}
-			
-		
+	}		
 }
