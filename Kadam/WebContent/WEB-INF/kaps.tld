@@ -70,4 +70,11 @@
   </attribute>
  </tag>
  
+ <tag>
+  <name>ReceiptNO</name>
+  <tag-class>com.kadam.customtags.ReceiptNoTag</tag-class>
+  <body-content>empty</body-content>
+  </tag>
+ 
+ 
 </taglib>

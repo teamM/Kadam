@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
-import com.kadam.vo.DonorRegistrationVO;
 import com.kadam.vo.LoginVo;
 
 public class AuthenticationDao {

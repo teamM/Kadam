@@ -38,4 +38,14 @@
     <filter-name>AuthenticationFilter</filter-name>
     <url-pattern>/AuthenticationFilter</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReceiptGenerationController</display-name>
+    <servlet-name>ReceiptGenerationController</servlet-name>
+    <servlet-class>com.kadam.controller.ReceiptGenerationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReceiptGenerationController</servlet-name>
+    <url-pattern>/ReceiptGenerationController</url-pattern>
+  </servlet-mapping>
 </web-app>
