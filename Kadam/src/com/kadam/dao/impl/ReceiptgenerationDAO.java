@@ -48,13 +48,12 @@ public class ReceiptgenerationDAO {
 	public boolean insertReceiptDetails(ReceiptVO vo) {
 		
 		try {
-			statement_execute = con.prepareStatement("insert into master_receipts values(?,?,?,?,?,?)");
+			statement_execute = con.prepareStatement("insert into master_receipts (donor_name,collection_mode,fund_name,amount,details) values(?,?,?,?,?);");
 			statement_execute.setString(1, vo.getDonor_name());
 			statement_execute.setString(2, vo.getCollection_mode());
-			statement_execute.setString(3, vo.getFund_name());
-			statement_execute.setDate(4, vo.getDate());
-			statement_execute.setInt(5, vo.getAmount());
-			statement_execute.setString(6, vo.getDetails());
+			statement_execute.setString(3, vo.getFund_name());			
+			statement_execute.setInt(4, vo.getAmount());
+			statement_execute.setString(5, vo.getDetails());
 			statement_execute.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
