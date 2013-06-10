@@ -27,7 +27,7 @@
 		<td>
 		 <p:Label label="password"/>
 		</td>
-		<td><input type="text" name="password" id="password"></td>		 
+		<td><input type="password" name="password" id="password"></td>		 
 	</tr>
 	<tr>
 				
