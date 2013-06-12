@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
@@ -61,5 +63,29 @@ public class ReceiptgenerationDAO {
 		}
 		
 		return true;
+	}
+	
+	public List<ReceiptVO> printReceipt(){
+		List<ReceiptVO> receipt_list = new ArrayList<ReceiptVO>();
+		ReceiptVO vo ;
+		
+		try {
+			statement_execute = con.prepareStatement("select receipt_voucher_no,receipt_date,details from master_receipts");
+			result = statement_execute.executeQuery();
+			while(result.next()){
+				vo = new ReceiptVO();
+				vo.setReceipt_id(result.getInt(1));
+				vo.setDate(result.getDate(2));
+				vo.setDetails(result.getString(3));
+				receipt_list.add(vo);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return receipt_list;
 	}
 }

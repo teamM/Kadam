@@ -25,7 +25,7 @@ function generate_receipt_id() {
       <li><a href="http://www.free-css.com/">Expense</a></li>
       <li><a href="donation_receipts.jsp" target="left">Receipts</a></li>
       <li><a href="http://www.free-css.com/">View Ledger</a></li>
-      <li><a href="http://www.free-css.com/">Print Receipts</a></li>
+      <li><a href="printReceipt.jsp" target="left">Print Receipts</a></li>
       <li><a href="http://www.free-css.com/">Contact us</a></li>
     </ul>
       

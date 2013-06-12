@@ -76,5 +76,10 @@
   <body-content>empty</body-content>
   </tag>
  
+ <tag>
+  <name>PrintReceipt</name>
+  <tag-class>com.kadam.customtags.PrintReceiptTag</tag-class>
+  <body-content>empty</body-content>
+  </tag>
  
 </taglib>

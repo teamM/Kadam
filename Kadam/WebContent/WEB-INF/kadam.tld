@@ -68,5 +68,23 @@
    <rtexprvalue>false</rtexprvalue>
   </attribute>
  </tag>
+ 
+ <tag>
+  <name>ReceiptNO</name>
+  <tag-class>com.kadam.customtags.ReceiptNoTag</tag-class>
+  <body-content>empty</body-content>
+  </tag>
+ 
+ <tag>
+  <name>PrintReceipt</name>
+  <tag-class>com.kadam.customtags.PrintReceiptTag</tag-class>
+  <body-content>empty</body-content>
+  </tag>
+ 
+ <tag>
+  <name>readpdf</name>
+  <tag-class>com.kadam.customtags.ReadPdfTag</tag-class>
+  <body-content>empty</body-content>
+  </tag>
 </taglib>
 

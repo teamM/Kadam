@@ -1,8 +1,6 @@
 package com.kadam.controller;
 
 import java.io.IOException;
-import java.sql.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kadam.bo.ReceiptGenerationBO;
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
+import com.kadam.pdf.PdfWrite;
 import com.kadam.vo.ReceiptVO;
 
 /**
@@ -34,7 +33,7 @@ public class ReceiptGenerationController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ReceiptVO receipt_vo = new ReceiptVO();
-		ReceiptGenerationBO bo = new ReceiptGenerationBO();
+		ReceiptGenerationBO bo = new ReceiptGenerationBO();		
 		
 		receipt_vo.setDonor_name(request.getParameter("donor"));
 		receipt_vo.setCollection_mode(request.getParameter("collectionmode"));
@@ -43,10 +42,9 @@ public class ReceiptGenerationController extends HttpServlet {
 		receipt_vo.setDetails(request.getParameter("details"));
 		
 		try {
-			if(bo.insertReceiptDetails(receipt_vo)==true){
-				RequestDispatcher dispatcher1 = request.getRequestDispatcher("donation_receipts.jsp");
-				dispatcher1.forward(request, response);
-			}
+			bo.insertReceiptDetails(receipt_vo);
+			RequestDispatcher dispatcher1 = request.getRequestDispatcher("donation_receipts.jsp");
+			dispatcher1.forward(request, response);
 		} catch (KadamException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,7 +52,6 @@ public class ReceiptGenerationController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	/**
