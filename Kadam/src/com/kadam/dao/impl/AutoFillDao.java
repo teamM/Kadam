@@ -30,17 +30,22 @@ public class AutoFillDao {
 	}
 	
 	
-	
-	public List<String> donornameAutofill() throws KadamBusinessException {
+	@SuppressWarnings("unchecked")
+	public List<String> donornameAutofill(String query) throws KadamBusinessException {
 		// TODO Auto-generated method stub
+		List<String> names=new ArrayList<String>();
 		try {
 			System.out.println("in dao");
-			statement=con.prepareStatement("select donor_name from master_receipts");
-			//statement.setString(1, userloginvo.getUsername());    
-			//statement.setString(2, userloginvo.getPassword());
-			//System.out.println(userloginvo.getPassword()+"pass"+userloginvo.getUsername()+"username");
+			String query1=query+"%";
+			statement=con.prepareStatement("select donor_name from master_receipts where donor_name like ?");
+			statement.setString(1, query1);
 			result=statement.executeQuery();
-			System.out.println(result.getFetchSize());
+			while (result.next()){
+				names.add(result.getString(1));
+				//System.out.println(result.getString(1));
+			}
+			//System.out.println(result.getFetchSize()+" now ");
+            //names=(List<String>) result.getArray("donor_name");
 			
 			con.close();
 			}catch (SQLException e) {
@@ -49,9 +54,8 @@ public class AutoFillDao {
 			//e.printStackTrace();
 			throw new KadamBusinessException(e+" Donor_name autofill cannot be retrived from database");
 		}	
-		List<String> names=new ArrayList<String>();
-		names.add("vivek");
-		names.add("madhav");
+		//names.add("vivek");
+		//names.add("madhav");
 		return names;
 	}	
 }

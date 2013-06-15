@@ -7,10 +7,10 @@ import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
 
 public class AutoFillBo {
-	public List<String> donornameAutofill() throws KadamException, KadamBusinessException{
+	public List<String> donornameAutofill(String query) throws KadamException, KadamBusinessException{
 		System.out.println("in bo ");
 		AutoFillDao dao=new AutoFillDao();
-		return dao.donornameAutofill();
+		return dao.donornameAutofill(query);
 		
 	}
 

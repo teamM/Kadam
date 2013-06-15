@@ -4,9 +4,19 @@
 <%@page import="java.util.*" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@taglib prefix="p" uri="/WEB-INF/kaps.tld"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <%@taglib prefix="p1" uri="/WEB-INF/kadam.tld"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!--    For auto complete  -->
+<link rel="stylesheet" type="text/css" href="Styles/jquery.autocomplete.css" />
+	<script src="http://www.google.com/jsapi"></script>  
+	<script>  
+		google.load("jquery", "1");
+	</script>
+	<script src="js/jquery.autocomplete.js"></script> 
+<!--                       -->
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <style>
@@ -34,6 +44,7 @@ function addDate(){
 </script>
 </head>
 <body onload="addDate()">
+
 <%
 
 //ReceiptgenerationDAO dao = new ReceiptgenerationDAO();
@@ -44,7 +55,13 @@ function addDate(){
 <table cellspacing="2" cellpadding="8">
 <tr>
 <td><p:Label label="donor"/></td>
-<td><input type="text" name="donor"></td>
+<td>
+<input type="text" id="donor" name="donor"/>
+<script>
+$("#donor").autocomplete("getquery.jsp");
+</script>
+</td>
+
 </tr>
 <tr>
 <td><p:Label label="collectionmode"/></td>
