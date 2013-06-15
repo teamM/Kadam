@@ -48,4 +48,13 @@
     <servlet-name>ReceiptGenerationController</servlet-name>
     <url-pattern>/ReceiptGenerationController</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>LoadDonorNameFilter</display-name>
+    <filter-name>LoadDonorNameFilter</filter-name>
+    <filter-class>com.kadam.filter.LoadDonorNameFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoadDonorNameFilter</filter-name>
+    <url-pattern>/donation_receipts.jsp</url-pattern>
+  </filter-mapping>
 </web-app>
