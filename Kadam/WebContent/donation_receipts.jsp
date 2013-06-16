@@ -34,14 +34,12 @@ function addDate(){
 </script>
 </head>
 <body onload="addDate()">
-<%
-
-//ReceiptgenerationDAO dao = new ReceiptgenerationDAO();
-//receipt_id = dao.autogenerate_receiptid();
-%>
 <form action="ReceiptGenerationController">
-
 <table cellspacing="2" cellpadding="8">
+<tr>
+<td><p:Label label="receiptno"/></td>
+<td><p:ReceiptNO/></td>
+</tr>
 <tr>
 <td><p:Label label="donor"/></td>
 <td><input type="text" name="donor"></td>

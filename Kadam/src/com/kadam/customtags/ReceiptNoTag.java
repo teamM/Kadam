@@ -25,11 +25,9 @@ public class ReceiptNoTag extends SimpleTagSupport{
 			e1.printStackTrace();
 		}
 		int receipt_id = dao.autogenerate_receiptid();
-		System.out.println("receipt id = " + receipt_id);
-
 		final JspWriter out = getJspContext().getOut();		
 		try {
-			out.print("<input type='text' name='receiptno' value=' "+ receipt_id +" '>");
+			out.print("<input type='text' name='receiptno' value=' "+ receipt_id +" ' readonly='readonly'>");
 		} catch (IOException e) {
 			
 		}

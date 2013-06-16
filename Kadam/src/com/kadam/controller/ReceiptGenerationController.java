@@ -35,6 +35,7 @@ public class ReceiptGenerationController extends HttpServlet {
 		ReceiptVO receipt_vo = new ReceiptVO();
 		ReceiptGenerationBO bo = new ReceiptGenerationBO();		
 		
+		//receipt_vo.setReceipt_id(Integer.parseInt(request.getParameter("receiptno")));
 		receipt_vo.setDonor_name(request.getParameter("donor"));
 		receipt_vo.setCollection_mode(request.getParameter("collectionmode"));
 		receipt_vo.setFund_name(request.getParameter("fundname"));
