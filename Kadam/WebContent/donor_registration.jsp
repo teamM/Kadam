@@ -22,21 +22,29 @@
   </script>
 
 <body>
+
+<%if(session.getAttribute("success")!=null){ %>
+	<%=session.getAttribute("success") %>	
+	To Register another user <a href="donor_registration.jsp">click here</a>
+<% session.setAttribute("success", null);
+session.invalidate();
+}else { %>
+
 <form action="DonorRegistrationController">
 <table cellspacing="2" cellpadding="8">
-<tr>
+<%-- <tr>
 <td><p:Label label="don_id"/></td>
 <td><input type="text" name="donor_id"></td>
 </tr>
-<tr>
+ --%><tr>
 <td><p:Label label="don_name"/></td>
 <td><input type="text" name="donor_name"></td>
 </tr>
-<tr>
+<%-- <tr>
 <td><p:Label label="don_regdate"/></td>
 <td><input type="text" name="donor_regdate" id="datepicker1"></td>
 </tr>
-<tr>
+ --%><tr>
 <td><p:Label label="don_commitment"/></td>
 <td><input type="text" name="donor_commitment"></td>
 </tr>
@@ -62,7 +70,7 @@
 </tr> 
 <tr>
 <td><p:Label label="don_email"/></td>
-<td><input type="text" name="donor_email"></td>
+<td><input type="text" name="donor_email1"></td>
 </tr> 
 <tr>
 <td><p:Label label="don_email2"/></td>
@@ -89,5 +97,6 @@
 </tr>
 </table>
 </form>
+<%} %>
 </body>
 </html>

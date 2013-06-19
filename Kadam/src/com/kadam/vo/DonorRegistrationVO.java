@@ -8,8 +8,8 @@ public class DonorRegistrationVO {
 	private Date donor_regdate;
 	private String donor_commitment;
 	private String donor_address;
-	private int donor_phone1;
-	private int donor_phone2;
+	private double donor_phone1;
+	private double donor_phone2;
 	private Date donor_bdy;
 	private Date donor_annvi;
 	private String donor_email;
@@ -48,29 +48,29 @@ public class DonorRegistrationVO {
 	public void setDonor_address(String donor_address) {
 		this.donor_address = donor_address;
 	}
-	public int getDonor_phone1() {
+	public double getDonor_phone1() {
 		return donor_phone1;
 	}
-	public void setDonor_phone1(int donor_phone1) {
+	public void setDonor_phone1(double donor_phone1) {
 		this.donor_phone1 = donor_phone1;
 	}
-	public int getDonor_phone2() {
+	public double getDonor_phone2() {
 		return donor_phone2;
 	}
-	public void setDonor_phone2(int donor_phone2) {
+	public void setDonor_phone2(double donor_phone2) {
 		this.donor_phone2 = donor_phone2;
 	}
 	public Date getDonor_bdy() {
 		return donor_bdy;
 	}
-	public void setDonor_bdy(Date donor_bdy) {
-		this.donor_bdy = donor_bdy;
+	public void setDonor_bdy(Date parsed_bdy) {
+		this.donor_bdy =  parsed_bdy;
 	}
 	public Date getDonor_annvi() {
 		return donor_annvi;
 	}
-	public void setDonor_annvi(Date donor_annvi) {
-		this.donor_annvi = donor_annvi;
+	public void setDonor_annvi(Date parsed_annvi) {
+		this.donor_annvi =  parsed_annvi;
 	}
 	public String getDonor_email() {
 		return donor_email;
