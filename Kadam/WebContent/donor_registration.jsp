@@ -8,6 +8,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  $(function() {
+    $( "#datepicker1" ).datepicker();
+    $( "#datepicker2" ).datepicker();
+    $( "#datepicker3" ).datepicker();
+  });
+  </script>
+
 <body>
 <form action="DonorRegistrationController">
 <table cellspacing="2" cellpadding="8">
@@ -21,7 +34,7 @@
 </tr>
 <tr>
 <td><p:Label label="don_regdate"/></td>
-<td><input type="text" name="donor_regdate"></td>
+<td><input type="text" name="donor_regdate" id="datepicker1"></td>
 </tr>
 <tr>
 <td><p:Label label="don_commitment"/></td>
@@ -41,11 +54,11 @@
 </tr>
 <tr>
 <td><p:Label label="don_bday"/></td>
-<td><input type="text" name="donor_bday"></td>
+<td><input type="text" name="donor_bday" id="datepicker2"></td>
 </tr> 
 <tr>
 <td><p:Label label="don_anniv"/></td>
-<td><input type="text" name="don_anniversary"></td>
+<td><input type="text" name="don_anniversary" id="datepicker3"></td>
 </tr> 
 <tr>
 <td><p:Label label="don_email"/></td>

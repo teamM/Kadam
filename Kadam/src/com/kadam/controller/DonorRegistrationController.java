@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kadam.bo.DonorRegistrationBO;
+import com.kadam.execeptions.KadamBusinessException;
+import com.kadam.execeptions.KadamException;
 import com.kadam.vo.DonorRegistrationVO;
 
 /**
@@ -37,9 +40,30 @@ public class DonorRegistrationController extends HttpServlet {
 		donor_reg_vo.setDonor_id(Integer.parseInt(request.getParameter("donor_id")));
 		donor_reg_vo.setDonor_name(request.getParameter("donor_name"));
 		//donor_reg_vo.setDonor_regdate(DateFormat.parse(request.getParameter("donor_regdate")));
+		donor_reg_vo.setDonor_commitment(request.getParameter("donor_commitment"));
+		donor_reg_vo.setDonor_address(request.getParameter("donor_address"));
+		donor_reg_vo.setDonor_phone1(Integer.parseInt(request.getParameter("donor_phone1")));
+		donor_reg_vo.setDonor_phone2(Integer.parseInt(request.getParameter("donor_phone2")));
+		//donor_reg_vo.setDonor_bdy(request.getParameter("donor_bdy"));
+		//donor_reg_vo.setDonor_annvi(request.getParameter("donor_annvi"));
+		donor_reg_vo.setDonor_email(request.getParameter("donor_email"));
+		donor_reg_vo.setDonor_email2(request.getParameter("donor_email2"));
+		donor_reg_vo.setDonor_workplace(request.getParameter("donor_workplace"));
+		donor_reg_vo.setDonor_designation(request.getParameter("donor_designation"));
+		donor_reg_vo.setDonor_pancard(request.getParameter("donor_pancard"));
+		donor_reg_vo.setDonor_comments(request.getParameter("donor_comments"));
 		
-		//KARTHIK set all other vo variables
-		
+		DonorRegistrationBO bo=new DonorRegistrationBO();
+		try {
+			bo.donorRegistration(donor_reg_vo);
+		} catch (KadamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (KadamBusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		
 		
 	}
