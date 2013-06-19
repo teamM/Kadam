@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 import com.kadam.dao.impl.ReceiptgenerationDAO;
@@ -22,6 +24,8 @@ public class PrintReceiptTag extends SimpleTagSupport{
 	public void doTag() throws JspException, IOException {
 		// TODO Auto-generated method stub
 		final JspWriter out = getJspContext().getOut(); // gets the output stream to
+		PageContext pageContext = (PageContext)getJspContext();
+		HttpSession session = pageContext.getSession();
 		
 		try {
 			dao = new ReceiptgenerationDAO();
@@ -35,18 +39,21 @@ public class PrintReceiptTag extends SimpleTagSupport{
 			out.print("<th>Details</th>");
 			out.print("<th>Read File</th>");
 			out.print("</tr>");
-			System.out.println(receipt_list.size());
+			
 			while(io.hasNext()){
 				vo = io.next();
-				System.out.println(vo);
+				String receiptno = vo.getReceipt_id() + "_" + vo.getReceipt_date();
+				//System.out.println("receiptno : " + receiptno);
+				session.setAttribute("receiptno", vo.getReceipt_id() + "_" + vo.getReceipt_date());
 				out.print("<tr>");
 				out.print("<td>"+ vo.getReceipt_id()+"</td>");
-				out.print("<td>"+ vo.getDate() + "</td>");
+				out.print("<td>"+ vo.getReceipt_date() + "</td>");
 				out.print("<td>"+ vo.getDetails()+ "</td>");
-				out.print("<td><a href='readPDF.jsp'>open</a></td>");
+				out.print("<td><a href='readPDF.jsp?&RNO='"+receiptno+"'' >open</a></td>");
 				out.print("</tr>");
 			}	
 			out.print("</table>");
+			System.out.println("get session: " + session.getAttribute("receiptno"));
 			
 		} catch (KadamException e) {
 			// TODO Auto-generated catch block

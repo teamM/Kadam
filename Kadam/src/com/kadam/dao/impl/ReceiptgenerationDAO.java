@@ -75,7 +75,7 @@ public class ReceiptgenerationDAO {
 			while(result.next()){
 				vo = new ReceiptVO();
 				vo.setReceipt_id(result.getInt(1));
-				vo.setDate(result.getDate(2));
+				vo.setReceipt_date(result.getDate(2));
 				vo.setDetails(result.getString(3));
 				receipt_list.add(vo);
 				

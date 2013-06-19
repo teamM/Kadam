@@ -6,10 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript">
+	function storeSessionVar(){
+	
+	}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
+<%System.out.println("printing from <a>" + request.getParameter("RNO")); %>
 <p:readpdf/>
 <c:redirect url="printReceipt.jsp"></c:redirect>
+<!-- 
+<form action="ReadPdfController" name='readpdf'>
+<p:readpdf/>
+<c:redirect url="printReceipt.jsp"></c:redirect>
+</form>
+-->
 </body>
 </html>

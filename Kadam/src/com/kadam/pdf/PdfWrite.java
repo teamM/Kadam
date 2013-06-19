@@ -23,22 +23,25 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.kadam.vo.ReceiptVO;
 
 
 public class PdfWrite {
-  private static String FILE = "C:/Users/deepu/git/Kadam/Kadam/PDF Store/FirstPdf.pdf";
+  private static String FILE ;
   private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
   private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,Font.NORMAL, BaseColor.RED);
   private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 10,Font.BOLD);
   private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 8,Font.NORMAL);
 
-  public void pdf_write() {
+  public void pdf_write(ReceiptVO vo) {
+	  System.out.println("write pdf :" + "Donation_receipt_" + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf");
+	  FILE = "C:/Users/deepu/git/Kadam/Kadam/PDF Store/Donation_receipt_" + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf";
 	 try {
       Document document = new Document();
       PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(FILE));
       document.open();
       addMetaData(document);
-      addTitlePage(document,writer);
+      addContent(document,writer,vo);
       //addContent(document);
       document.close();
     } catch (Exception e) {
@@ -57,7 +60,7 @@ public class PdfWrite {
     document.addCreator("");
   }
 
-  private static void addTitlePage(Document document,PdfWriter writer)throws DocumentException, IOException {
+  private static void addContent(Document document,PdfWriter writer,ReceiptVO vo)throws DocumentException, IOException {
     
 	  //adding line
 	  PdfContentByte cb = writer.getDirectContent();
@@ -139,7 +142,7 @@ public class PdfWrite {
     preface.setAlignment(Element.ALIGN_CENTER);
     document.add(preface);
     
-    createTable(document);
+    createTable(document,vo);
     
   //draw a line after table
     cb.moveTo(50, 400);
@@ -170,11 +173,11 @@ public class PdfWrite {
     //document.newPage();
    }
   
-  private static void createTable(Document document) throws DocumentException {
+  private static void createTable(Document document,ReceiptVO vo) throws DocumentException {
 	    
 	  PdfPTable table = new PdfPTable(3);
 	  
-    // t.setBorderColor(BaseColor.GRAY);
+   // t.setBorderColor(BaseColor.WHITE);
     // t.setPadding(4);
     // t.setSpacing(4);
     // t.setBorderWidth(1);
@@ -192,15 +195,12 @@ public class PdfWrite {
     table.addCell(c1);
     table.setHeaderRows(1);
 
-    table.addCell("1.0");
-    table.addCell("1.1");
-    table.addCell("1.2");
-    table.addCell("2.1");
-    table.addCell("2.2");
-    table.addCell("2.3");  
+    table.addCell("" + vo.getReceipt_id());
+    table.addCell("" + vo.getReceipt_date() + "\n" + vo.getFund_name() + "\n" + vo.getDetails());
+    table.addCell("" + vo.getAmount());
     table.addCell("");
     table.addCell("TOTAL");
-    table.addCell("....");
+    table.addCell("" + vo.getAmount());
     
     document.add(table);
 

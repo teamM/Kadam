@@ -19,7 +19,7 @@ public class AutoFillDao {
 	public  AutoFillDao() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kaps", "root", "admin");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new KadamException("Database driver not found");
@@ -37,7 +37,7 @@ public class AutoFillDao {
 		try {
 			System.out.println("in dao");
 			String query1=query+"%";
-			statement=con.prepareStatement("select donor_name from master_receipts where donor_name like ?");
+			statement=con.prepareStatement("select don_name from master_donor where don_name like ?");
 			statement.setString(1, query1);
 			result=statement.executeQuery();
 			while (result.next()){

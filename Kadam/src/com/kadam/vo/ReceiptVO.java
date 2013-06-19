@@ -1,13 +1,14 @@
 package com.kadam.vo;
 
 import java.sql.Date;
+
 public class ReceiptVO {
 
 	private int Receipt_id;
 	private String donor_name;
 	private String collection_mode;
 	private String fund_name;
-	private Date date;
+	private Date receipt_date;
 	private int amount;
 	private String details;
 	public int getReceipt_id() {
@@ -34,12 +35,14 @@ public class ReceiptVO {
 	public void setFund_name(String fund_name) {
 		this.fund_name = fund_name;
 	}
-	public Date getDate() {
-		return date;
+		
+	public Date getReceipt_date() {
+		return receipt_date;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setReceipt_date(Date receipt_date) {
+		this.receipt_date = receipt_date;
 	}
+	
 	public int getAmount() {
 		return amount;
 	}

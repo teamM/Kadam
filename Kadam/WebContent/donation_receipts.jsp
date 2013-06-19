@@ -38,7 +38,7 @@ function addDate(){
 	var year = date.getFullYear();
 	
 	if (document.getElementById('date').value == ''){
-		document.getElementById('date').value = day + '-' + month + '-' + year;
+		document.getElementById('date').value = year + '-' + month + '-' + day;
 	}
 }
 </script>

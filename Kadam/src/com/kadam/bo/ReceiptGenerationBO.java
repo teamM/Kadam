@@ -14,7 +14,7 @@ public class ReceiptGenerationBO {
 		
 		boolean flag = dao.insertReceiptDetails(vo);
 		if(flag==true){
-			pdf.pdf_write();
+			pdf.pdf_write(vo);
 		}
 		return true;
 	}

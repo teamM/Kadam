@@ -1,6 +1,11 @@
 package com.kadam.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.kadam.bo.ReceiptGenerationBO;
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
-import com.kadam.pdf.PdfWrite;
 import com.kadam.vo.ReceiptVO;
 
 /**
@@ -30,14 +34,28 @@ public class ReceiptGenerationController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ReceiptVO receipt_vo = new ReceiptVO();
 		ReceiptGenerationBO bo = new ReceiptGenerationBO();		
 		
-		//receipt_vo.setReceipt_id(Integer.parseInt(request.getParameter("receiptno")));
+		receipt_vo.setReceipt_id(Integer.parseInt(request.getParameter("receiptno")));
 		receipt_vo.setDonor_name(request.getParameter("donor"));
 		receipt_vo.setCollection_mode(request.getParameter("collectionmode"));
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date parsed;
+		try {
+			parsed = format.parse(request.getParameter("date"));
+			java.sql.Date sql = new java.sql.Date(parsed.getTime());
+			receipt_vo.setReceipt_date(sql);
+			System.out.println("sql date :" + sql);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        
 		receipt_vo.setFund_name(request.getParameter("fundname"));
 		receipt_vo.setAmount(Integer.parseInt(request.getParameter("amount")));
 		receipt_vo.setDetails(request.getParameter("details"));
