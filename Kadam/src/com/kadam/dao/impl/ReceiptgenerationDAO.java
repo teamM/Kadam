@@ -70,13 +70,17 @@ public class ReceiptgenerationDAO {
 		ReceiptVO vo ;
 		
 		try {
-			statement_execute = con.prepareStatement("select receipt_voucher_no,receipt_date,details from master_receipts");
+			statement_execute = con.prepareStatement("select receipt_voucher_no,receipt_date,details,fund_name,donor_name,collection_mode from master_receipts");
 			result = statement_execute.executeQuery();
 			while(result.next()){
 				vo = new ReceiptVO();
 				vo.setReceipt_id(result.getInt(1));
 				vo.setReceipt_date(result.getDate(2));
 				vo.setDetails(result.getString(3));
+				vo.setFund_name(result.getString(4));
+				vo.setDonor_name(result.getString(5));
+				vo.setCollection_mode(result.getString(6));
+				
 				receipt_list.add(vo);
 				
 			}

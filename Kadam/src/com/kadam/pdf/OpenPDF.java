@@ -4,16 +4,17 @@ import java.io.File;
 
 import org.apache.catalina.Session;
 
+import com.kadam.util.PropertyUtil;
+
 public class OpenPDF {
 	
 	public void readpdf(String receiptno){
-		try {
-			System.out.println("open pdf :" + "Donation_receipt_" + receiptno + ".pdf");
-			if ((new File("C:/Users/deepu/git/Kadam/Kadam/PDF Store/Donation_receipt_" + receiptno + ".pdf")).exists()) {
+		try {			
+			if ((new File(PropertyUtil.getUIText("link") + receiptno + ".pdf")).exists()) {
 
 				Process p = Runtime
 				   .getRuntime()
-				   .exec("rundll32 url.dll,FileProtocolHandler C:/Users/deepu/git/Kadam/Kadam/PDF Store/Donation_receipt_" + receiptno + ".pdf");
+				   .exec("rundll32 url.dll,FileProtocolHandler " + PropertyUtil.getUIText("link") + receiptno + ".pdf");
 				p.waitFor();
 
 			} else {

@@ -23,6 +23,7 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.kadam.util.PropertyUtil;
 import com.kadam.vo.ReceiptVO;
 
 
@@ -35,7 +36,7 @@ public class PdfWrite {
 
   public void pdf_write(ReceiptVO vo) {
 	  System.out.println("write pdf :" + "Donation_receipt_" + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf");
-	  FILE = "C:/Users/deepu/git/Kadam/Kadam/PDF Store/Donation_receipt_" + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf";
+	  FILE = PropertyUtil.getUIText("link") + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf";
 	 try {
       Document document = new Document();
       PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(FILE));

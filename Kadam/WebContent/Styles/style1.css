@@ -8,19 +8,43 @@ body {
 	padding: 0px;
 }
 
-#container {
-	margin: 0px 0px;
-	text-align: right;
-	width: 1200px;
-}
-
 #header {
 	margin: 0px 0px 0px 0px;
 	background-image:url(../images/kadam5.jpg);
-	width:1333px;
-	height:202px;
+	width:1343px;
+	height:211px;
 	position:relative;
 }
+#header_text p{
+	font-size: 18px;
+	color:#FFFFFF;
+}
+
+#header ul{
+	background-color:#85a157;
+	width:1337px;
+	border: 3px solid #FFFFFF;
+	display:block;
+	top:211px;
+	position:absolute;
+	margin: 0px 0px 0px 0px;
+	height:22px;
+	padding:5px 0px 0px 0px;
+	text-align:center;
+}
+#header li{
+	display:inline;	
+}
+#header ul a{
+	text-decoration:none;
+	color:#FFFFFF;
+	margin: 0px 35px;
+}
+#header ul a:hover{
+	text-decoration:underline;
+	color:#28556b;
+}
+
 #content {
 	background-image:url(../images/content_bg.gif);
 	width:1200px;
@@ -42,35 +66,6 @@ body {
 	left:800px;
 }
 
-#header_text p{
-	font-size: 18px;
-	color:#FFFFFF;
-}
-
-#header ul{
-	background-color:#85a157;
-	width:1325px;
-	border: 3px solid #FFFFFF;
-	display:block;
-	top:202px;
-	position:absolute;
-	margin: 0px 0px 0px 0px;
-	height:22px;
-	padding:5px 0px 0px 0px;
-	text-align:center;
-}
-#header li{
-	display:inline;	
-}
-#header ul a{
-	text-decoration:none;
-	color:#FFFFFF;
-	margin: 0px 35px;
-}
-#header ul a:hover{
-	text-decoration:underline;
-	color:#28556b;
-}
 
 
 a{

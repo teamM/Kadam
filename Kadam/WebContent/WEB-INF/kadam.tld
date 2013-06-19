@@ -85,6 +85,11 @@
   <name>readpdf</name>
   <tag-class>com.kadam.customtags.ReadPdfTag</tag-class>
   <body-content>empty</body-content>
+  <attribute>
+   <name>receiptno</name>
+   <required>true</required>
+   <rtexprvalue>false</rtexprvalue>
+  </attribute>
   </tag>
 </taglib>
 

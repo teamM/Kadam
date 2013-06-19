@@ -12,7 +12,14 @@ import com.kadam.pdf.OpenPDF;
 public class ReadPdfTag extends SimpleTagSupport{
 
 	OpenPDF pdf = new OpenPDF();
+	private transient String receiptno;
 	
+	
+	public void setReceiptno(String receiptno) {
+		this.receiptno = receiptno;
+	}
+
+
 	@Override
 	public void doTag() throws JspException, IOException {
 		PageContext pageContext = (PageContext)getJspContext();
@@ -20,7 +27,7 @@ public class ReadPdfTag extends SimpleTagSupport{
 		
 		// TODO Auto-generated method stub
 		super.doTag();
-		pdf.readpdf((String)session.getAttribute("receiptno"));
-		System.out.println("readpdfTag" + session.getAttribute("receiptno"));
+		pdf.readpdf(receiptno);
+		System.out.println("readpdfTag" + receiptno);
 	}
 }

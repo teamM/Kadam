@@ -8,11 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="Styles/style1.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
-<script type="text/javascript">
-function generate_receipt_id() {
-	
-}
-</script>
 
 </head>
 <body>
