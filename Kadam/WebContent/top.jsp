@@ -16,12 +16,15 @@
     	 <div id="logo_w2">ACCOUNTING & PLANNING</div>
     	 <div id="header_text">    	 
       <ul>
-      <li><a href="http://www.free-css.com/">Home</a></li>
-      <li><a href="http://www.free-css.com/">Expense</a></li>
+      <!-- <li><a href="http://www.free-css.com/">Home</a></li>
+       -->
+      <li><a href="donor_registration.jsp" target="left">Donor Registration</a></li>
       <li><a href="donation_receipts.jsp" target="left">Receipts</a></li>
-      <li><a href="http://www.free-css.com/">View Ledger</a></li>
+      <!-- <li><a href="http://www.free-css.com/">View Ledger</a></li>
+       -->
       <li><a href="printReceipt.jsp" target="left">Print Receipts</a></li>
       <li><a href="http://www.free-css.com/">Contact us</a></li>
+        <li><a href="logout.jsp">Log Out</a></li>
     </ul>
       
          </div>

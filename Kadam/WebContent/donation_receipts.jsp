@@ -1,7 +1,7 @@
-<%@page import="com.kadam.dao.impl.ReceiptgenerationDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*" %>
+<%@page import="com.kadam.dao.impl.ReceiptgenerationDAO"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@taglib prefix="p" uri="/WEB-INF/kaps.tld"%>
     <%@taglib prefix="p1" uri="/WEB-INF/kadam.tld"%>

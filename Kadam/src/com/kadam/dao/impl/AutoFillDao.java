@@ -19,7 +19,7 @@ public class AutoFillDao {
 	public  AutoFillDao() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/kaps", "root", "admin");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new KadamException("Database driver not found");

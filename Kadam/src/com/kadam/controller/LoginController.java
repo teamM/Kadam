@@ -52,13 +52,20 @@ public class LoginController extends HttpServlet {
 		
 		try {
 			authentication=bo.loginAuthentication(userloginvo);
+			System.out.println("hello "+authentication);
 			if(authentication==true){
+				System.out.println("authenticating");
 				//session.setAttribute("login",userloginvo.getUsertype());
 				//in future if there is to be admin and normal user then the above can be used
 				session.setAttribute("username", userloginvo.getUsername());
-				RequestDispatcher dispatcher1 = request.getRequestDispatcher("loginteacher.jsp");
-				dispatcher1.forward(request, response);
+				RequestDispatcher dispatcher1 = request.getRequestDispatcher("content_kadam.jsp");
+				//dispatcher1.forward(request, response);
+				response.sendRedirect("content_kadam.jsp");
+				return;
 			}
+				RequestDispatcher dispatcher2 = request.getRequestDispatcher("invalidlogin.jsp");
+				dispatcher2.forward(request, response);
+			
 		} catch (KadamException e) {
 			e.printStackTrace();
 		} catch (KadamBusinessException e) {

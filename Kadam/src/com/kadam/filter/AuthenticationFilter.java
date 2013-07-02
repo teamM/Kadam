@@ -1,6 +1,7 @@
 package com.kadam.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -35,35 +36,68 @@ public class AuthenticationFilter implements Filter {
 	 */
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		/*
 		// TODO Auto-generated method stub
 		// place your code here
 		HttpServletRequest request1 = (HttpServletRequest) request;
 	    HttpSession session = request1.getSession();	
+	    /////////////////////////////////////////////////////////
+	    ServletRequest request_original=request;
+	    ServletResponse response_original=response;
+	    /////////////////////////////////////////////////
 	    
-	    RequestDispatcher dispatcher1 = request1.getRequestDispatcher("login.jsp");
+	    RequestDispatcher dispatcher1 = request1.getRequestDispatcher("/main_pages/login.jsp");
 	    
-	    if(session.isNew()){
-	    	 session.setAttribute("username","new");
-	 		dispatcher1.forward(request, response);
-
-	    	 System.out.println("in filter a new session");
-	    }else{
-	    	 System.out.println("in filter a old"+session.getAttribute("username"));
-
-	    	if(session.getAttribute("username").equals("new")){
-	    		dispatcher1.forward(request, response);
-
-	 		    System.out.println("in filter old session");
-
-	 	    }
-	    }
-	   
+	    int frwd=0;
 	    System.out.println("in filter");
+	    if(session.isNew()){
+	    	System.out.println("in new session");
+	    	 session.setAttribute("username","new");
+	    	 System.out.println("in filter a new session");
+	    	 frwd=1;
+	    }else if(session.getAttribute("username").equals("new")){
+	    	System.out.println("in old session");
+	    	 frwd=1;
+	 	    }
+	    
+	    if(frwd==0){
+	    	System.out.println("chaining");
+	    	chain.doFilter(request, response);
+	    }else{
+	    	dispatcher1.forward(request, response);
 
-
+	    	//chain.doFilter(request, response);
+	    	System.out.println("forwarding");
+	    }
+	    System.out.println("filter returned");
 		// pass the request along the filter chain
-		chain.doFilter(request, response);
-	}
+    	//chain.doFilter(request, response);
+	*/
+		HttpServletRequest request1 = (HttpServletRequest) request;
+	    HttpSession session = request1.getSession();
+	    RequestDispatcher dispatcher1 = request1.getRequestDispatcher("login.jsp");
+
+	    int frwd=0;
+		System.out.println(" in filter");
+		if(session.isNew()){
+	    	System.out.println("in new session");
+	    	 session.setAttribute("username","new");
+	    	 System.out.println("in filter a new session");
+	    	 frwd=1;
+	    }else if(session.getAttribute("username").equals("new")){
+	    	System.out.println("in old session");
+	    	 frwd=1;
+	 	    }
+		if(frwd==0){
+	    	System.out.println("chaining");
+	    	chain.doFilter(request, response);
+	    }else{
+	    	dispatcher1.forward(request, response);
+
+	    	//chain.doFilter(request, response);
+	    	System.out.println("forwarding");
+	    }
+		}
 	
 	/**
 	 * @see Filter#init(FilterConfig)
