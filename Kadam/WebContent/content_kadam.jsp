@@ -6,22 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<frameset rows="10%,*,*,5%" border="0.5">
-
-	<frame name="top_1" src="green.jsp">
-	
-	<frameset cols="*" border="0.5" >
-		
+<frameset rows="*,*,5%" border="0.5">	
+	<frameset cols="*" border="0.5">
 		<frame name="top" src="top.jsp">
 	</frameset>
 	
-	<frameset cols="15%,*,20%,15%" border="0.5">
+	<frameset cols="15%,*,15%" border="0.5">
 		<frame name="left_4_1" src="green.jsp">
-		<frame name="left" >
-		<frame name="right" >
+		<frame name="left">
 		<frame name="left_4_4" src="green.jsp">
-	</frameset>
-	
+	</frameset>	
 	<frame name="bottom" src="green.jsp">
 	
 </frameset>

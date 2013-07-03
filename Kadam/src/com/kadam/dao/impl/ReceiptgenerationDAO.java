@@ -20,7 +20,7 @@ public class ReceiptgenerationDAO {
 	public ReceiptgenerationDAO() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test                                           ", "root", "admin");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
