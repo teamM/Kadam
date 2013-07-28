@@ -24,7 +24,7 @@
       <li><a href="printReceipt.jsp" target="centre">Print Receipts</a></li>
       <li><a href="generateReceipts_dateversion.jsp" target="centre">New Print</a></li>
       <li><a href="http://www.free-css.com/">Contact us</a></li>
-        <li><a href="logout.jsp" target="head">Log Out</a></li>
+        <li><a href="logout.jsp" target="head1">Log Out</a></li>
     </ul>
       
          </div>
