@@ -18,9 +18,11 @@
       <ul>
       <!-- <li><a href="http://www.free-css.com/">Home</a></li>
        -->
-      <li><a href="donor_registration.jsp" target="left">Donor Registration</a></li>
-      <li><a href="donation_receipts.jsp" target="left">Donation Receipts</a></li>
-      <li><a href="printReceipt.jsp" target="left">Print Receipts</a></li>
+      <li><a href="" target="centre">HOME</a></li>
+      <li><a href="expence.jsp" target="centre">Expence</a></li>
+      <li><a href="donation_receipts.jsp" target="centre">Donation Receipts</a></li>
+      <li><a href="printReceipt.jsp" target="centre">Print Receipts</a></li>
+      <li><a href="generateReceipts_dateversion.jsp" target="centre">New Print</a></li>
       <li><a href="http://www.free-css.com/">Contact us</a></li>
         <li><a href="logout.jsp" target="head">Log Out</a></li>
     </ul>

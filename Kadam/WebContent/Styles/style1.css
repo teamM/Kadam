@@ -9,7 +9,7 @@ body {
 }
 
 #header {
-	margin: 0px 0px 0px 0px;
+	margin-top:49px;
 	background-image:url(../images/kadam5.jpg);
 	width:1343px;
 	height:211px;
@@ -48,7 +48,7 @@ body {
 #content {
 	background-image:url(../images/content_bg.gif);
 	width:1200px;
-	height:600px;
+	height:900px;
 }
 
 #logo_w1,#logo_w2 {

@@ -10,6 +10,9 @@ public final class DataBaseConstants {
 	private DataBaseConstants(){
 		new DataBaseConstants();
 	}
+	
+	
+	
 	/**
 	 * The Database properties file
 	 */

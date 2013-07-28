@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
+import com.kadam.util.PropertyUtil;
 
 public class AutoFillDao {
 	
@@ -19,7 +20,7 @@ public class AutoFillDao {
 	public  AutoFillDao() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
+			con = DriverManager.getConnection(PropertyUtil.getDataBaseUrl(),PropertyUtil.getDataBaseUserName(), PropertyUtil.getDataBasePassWord());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new KadamException("Database driver not found");

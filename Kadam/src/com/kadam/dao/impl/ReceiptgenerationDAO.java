@@ -10,6 +10,8 @@ import java.util.List;
 
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
+import com.kadam.util.PropertyUtil;
+import com.kadam.vo.ReceiptGenerationDateversionVO;
 import com.kadam.vo.ReceiptVO;
 
 public class ReceiptgenerationDAO {
@@ -20,7 +22,7 @@ public class ReceiptgenerationDAO {
 	public ReceiptgenerationDAO() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
+			con = DriverManager.getConnection(PropertyUtil.getDataBaseUrl(), PropertyUtil.getDataBaseUserName(), PropertyUtil.getDataBasePassWord());
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -31,7 +33,7 @@ public class ReceiptgenerationDAO {
 		}
 	}
 
-	public int autogenerate_receiptid() {
+	public int autogenerate_receiptid() throws KadamBusinessException {
 		int maxId=0, receipt_id ;
 		try {
 			statement_execute = con.prepareStatement("select max(receipt_voucher_no) from master_receipts");
@@ -42,12 +44,12 @@ public class ReceiptgenerationDAO {
 	        receipt_id = maxId + 1;
 	        
 	    } catch (SQLException ex) {
-	        throw new IllegalStateException("Cannot access database", ex);
+	    	throw new KadamBusinessException("Cannot generate receipt id");
 	    }
 		return receipt_id;		
 	}
 	
-	public boolean insertReceiptDetails(ReceiptVO vo) {
+	public boolean insertReceiptDetails(ReceiptVO vo) throws KadamBusinessException {
 		
 		try {
 			statement_execute = con.prepareStatement("insert into master_receipts (donor_name,collection_mode,fund_name,amount,details) values(?,?,?,?,?);");
@@ -59,13 +61,14 @@ public class ReceiptgenerationDAO {
 			statement_execute.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			throw new IllegalStateException("Cannot access database", e);
+			throw new KadamBusinessException("Cannot insert the receipt details");
 		}
 		
 		return true;
 	}
 	
-	public List<ReceiptVO> printReceipt(){
+	//This method is not used now
+	public List<ReceiptVO> printReceipt() throws KadamBusinessException{
 		List<ReceiptVO> receipt_list = new ArrayList<ReceiptVO>();
 		ReceiptVO vo ;
 		
@@ -87,9 +90,35 @@ public class ReceiptgenerationDAO {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new KadamBusinessException("Can not retreive the print details");
 		}
 		
+		return receipt_list;
+	}
+	
+	public List<ReceiptVO> retreiveReceiptDetails(ReceiptGenerationDateversionVO vo_detail){
+		List<ReceiptVO> receipt_list = new ArrayList<ReceiptVO>();
+		ReceiptVO vo ;
+		try {
+			statement_execute = con.prepareStatement("select * from master_receipts where DATE(receipt_date)>=? and DATE(receipt_date)<=? and donor_name=?");
+			statement_execute.setDate(1, vo_detail.getFrom_date());
+			statement_execute.setDate(2, vo_detail.getTo_date());
+			statement_execute.setString(3, vo_detail.getDonor_name());
+			result = statement_execute.executeQuery();
+			while(result.next()){
+				vo = new ReceiptVO();
+				vo.setReceipt_id(result.getInt(1));
+				vo.setDonor_name(result.getString(2));
+				vo.setCollection_mode(result.getString(3));
+				vo.setFund_name(result.getString(4));
+				vo.setReceipt_date(result.getDate(5));
+				vo.setAmount(result.getInt(6));
+				receipt_list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return receipt_list;
 	}
 }

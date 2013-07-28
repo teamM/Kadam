@@ -34,7 +34,7 @@ public class PdfWrite {
   private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 10,Font.BOLD);
   private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 8,Font.NORMAL);
 
-  public void pdf_write(ReceiptVO vo) {
+  public String pdf_write(ReceiptVO vo) {
 	  System.out.println("write pdf :" + "Donation_receipt_" + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf");
 	  FILE = PropertyUtil.getUIText("link") + vo.getReceipt_id() + "_" +vo.getReceipt_date() +".pdf";
 	 try {
@@ -48,6 +48,7 @@ public class PdfWrite {
     } catch (Exception e) {
       e.printStackTrace();
     }
+	return vo.getReceipt_id() + "_" +vo.getReceipt_date();
   }
 
   // iText allows to add metadata to the PDF which can be viewed in your Adobe

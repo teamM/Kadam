@@ -96,8 +96,7 @@ public final class PropertyUtil {
 	 */
 	public static String getDataBasePassWord() {
 		final ResourceBundle passWord = getBundles(DataBaseConstants.DBPROPERTIES);
-		return passWord
-				.getString(DataBaseConstants.DATABASEPASSWORD);
+		return passWord.getString(DataBaseConstants.DATABASEPASSWORD);
 	}
 
 	/**
@@ -105,9 +104,8 @@ public final class PropertyUtil {
 	 *         file
 	 */
 	public static String getDataBase() {
-		final ResourceBundle passWord = getBundles(DataBaseConstants.DBPROPERTIES);
-		return passWord
-				.getString(DataBaseConstants.DATABASETYPE);
+		final ResourceBundle dbType = getBundles(DataBaseConstants.DBPROPERTIES);
+		return dbType.getString(DataBaseConstants.DATABASETYPE);
 
 	}
 

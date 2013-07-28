@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
+import com.kadam.util.PropertyUtil;
 import com.kadam.vo.DonorRegistrationVO;
 
 public class DonorRegistrationDao {
@@ -18,7 +19,7 @@ public class DonorRegistrationDao {
 	public DonorRegistrationDao() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
+			con = DriverManager.getConnection(PropertyUtil.getDataBaseUrl(), PropertyUtil.getDataBaseUserName(), PropertyUtil.getDataBasePassWord());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new KadamException("Database driver not found");
@@ -55,4 +56,22 @@ public class DonorRegistrationDao {
 		return false;
 	}
 
+	public DonorRegistrationVO retreiveDonorDetails(String name) throws KadamBusinessException{
+		
+		DonorRegistrationVO vo = new DonorRegistrationVO();
+		try {
+			statement = con.prepareStatement("select don_name,don_address,don_pan from master_donor where don_name=?");
+			statement.setString(1, name);
+			result = statement.executeQuery();
+			while(result.next()){
+				vo.setDonor_name(result.getString(1));
+				vo.setDonor_address(result.getString(2));
+				vo.setDonor_pancard(result.getString(3));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new KadamBusinessException(e+"Master donor information could not be inserted");
+		}
+		return vo;
+	}
 }

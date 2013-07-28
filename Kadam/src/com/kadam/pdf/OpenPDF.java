@@ -12,9 +12,7 @@ public class OpenPDF {
 		try {			
 			if ((new File(PropertyUtil.getUIText("link") + receiptno + ".pdf")).exists()) {
 
-				Process p = Runtime
-				   .getRuntime()
-				   .exec("rundll32 url.dll,FileProtocolHandler " + PropertyUtil.getUIText("link") + receiptno + ".pdf");
+				Process p = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + PropertyUtil.getUIText("link") + receiptno + ".pdf");
 				p.waitFor();
 
 			} else {

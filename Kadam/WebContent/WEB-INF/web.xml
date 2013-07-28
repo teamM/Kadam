@@ -48,5 +48,24 @@
     <servlet-name>ReceiptGenerationController</servlet-name>
     <url-pattern>/ReceiptGenerationController</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>ReceiptGenerationDatevertionController</display-name>
+    <servlet-name>ReceiptGenerationDatevertionController</servlet-name>
+    <servlet-class>com.kadam.controller.ReceiptGenerationDatevertionController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReceiptGenerationDatevertionController</servlet-name>
+    <url-pattern>/ReceiptGenerationDatevertionController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReceiptDateVersionController</display-name>
+    <servlet-name>ReceiptDateVersionController</servlet-name>
+    <servlet-class>com.kadam.controller.ReceiptDateVersionController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReceiptDateVersionController</servlet-name>
+    <url-pattern>/ReceiptDateVersionController</url-pattern>
+  </servlet-mapping>
 </web-app>

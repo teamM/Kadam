@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import com.kadam.execeptions.KadamBusinessException;
 import com.kadam.execeptions.KadamException;
+import com.kadam.util.PropertyUtil;
 import com.kadam.vo.LoginVo;
 
 public class AuthenticationDao {
@@ -18,7 +19,7 @@ public class AuthenticationDao {
 	public  AuthenticationDao() throws KadamException, KadamBusinessException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
+			con = DriverManager.getConnection(PropertyUtil.getDataBaseUrl(), PropertyUtil.getDataBaseUserName(), PropertyUtil.getDataBasePassWord());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new KadamException("Database driver not found");
